@@ -1,0 +1,23 @@
+{
+  "saveAndRun": {
+    "commands": [
+      {
+        "match": "schema.prisma",
+        "cmd": "yarn db:push",
+        "silent": false
+      },
+      {
+        "match": "src/graphql/resolvers/*",
+        "cmd": "yarn generate:nexus"
+      },
+      {
+        "match": "src/graphql/fragments/*",
+        "cmd": "yarn generate:documents"
+      },
+      {
+        "match": "src/graphql/operations/*",
+        "cmd": "yarn generate:documents"
+      }
+    ]
+  }
+}

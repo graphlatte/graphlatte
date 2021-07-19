@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "wk-j.save-and-run",
+    "graphql.vscode-graphql",
+    "prisma.prisma",
+    "esbenp.prettier-vscode"
+  ]
+}
