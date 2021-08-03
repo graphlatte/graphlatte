@@ -1,15 +1,19 @@
 import { Context, createContext } from "@/graphql/context";
-import { schema } from "@/graphql/schema";
+import { getEnveloped } from "@/graphql/envelop";
 import { ExtendedRequest, withSession } from "@/graphql/session";
 import {
   getGraphQLParameters,
   processRequest,
+  renderGraphiQL,
   shouldRenderGraphiQL,
 } from "graphql-helix";
-import { renderPlaygroundPage } from "graphql-playground-html";
 import { NextApiResponse } from "next";
 
 async function run(req: ExtendedRequest, res: NextApiResponse) {
+  const { parse, validate, contextFactory, execute, schema } = getEnveloped({
+    req,
+  });
+
   const request = {
     body: req.body,
     headers: req.headers,
@@ -18,7 +22,7 @@ async function run(req: ExtendedRequest, res: NextApiResponse) {
   };
 
   if (shouldRenderGraphiQL(request) && process.env.NODE_ENV !== "production") {
-    return res.send(renderPlaygroundPage({ endpoint: "/api/graphql" }));
+    return res.send(renderGraphiQL({ endpoint: "/api/graphql" }));
   }
 
   const { operationName, query, variables } = getGraphQLParameters(request);
@@ -29,7 +33,13 @@ async function run(req: ExtendedRequest, res: NextApiResponse) {
     variables,
     request,
     schema,
-    contextFactory: () => createContext({ req }),
+    parse,
+    validate,
+    execute,
+    contextFactory: (props) => ({
+      ...createContext({ req }),
+      ...contextFactory(props),
+    }),
   });
 
   if (result.type === "RESPONSE") {

@@ -19,6 +19,7 @@
 7. Next.js built-in ESLint integration
 8. Easy global typing with [`definitions.d.ts`](https://github.com/graphlatte/graphlatte/blob/main/src/config/definitions.d.ts) file (e.g. typing .env)
 9. Using [`next-iron-session`](https://github.com/vvo/next-iron-session) for authentication/session handling
+10. [`Envelop`](https://github.com/dotansimha/envelop) included
 
 ## Installation
 

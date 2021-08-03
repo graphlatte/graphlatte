@@ -10,6 +10,14 @@ import type { core } from "nexus";
 declare global {
   interface NexusGenCustomInputMethods<TypeName extends string> {
     /**
+     * The `BigInt` scalar type represents non-fractional signed whole numeric values.
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+     */
+    bigInt<FieldName extends string>(
+      fieldName: FieldName,
+      opts?: core.CommonInputFieldConfig<TypeName, FieldName>
+    ): void; // "BigInt";
+    /**
      * The `Byte` scalar type represents byte value as a Buffer
      */
     bytes<FieldName extends string>(
@@ -23,6 +31,13 @@ declare global {
       fieldName: FieldName,
       opts?: core.CommonInputFieldConfig<TypeName, FieldName>
     ): void; // "DateTime";
+    /**
+     * An arbitrary-precision Decimal type
+     */
+    decimal<FieldName extends string>(
+      fieldName: FieldName,
+      opts?: core.CommonInputFieldConfig<TypeName, FieldName>
+    ): void; // "Decimal";
     /**
      * The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
      */
@@ -35,6 +50,14 @@ declare global {
 declare global {
   interface NexusGenCustomOutputMethods<TypeName extends string> {
     /**
+     * The `BigInt` scalar type represents non-fractional signed whole numeric values.
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+     */
+    bigInt<FieldName extends string>(
+      fieldName: FieldName,
+      ...opts: core.ScalarOutSpread<TypeName, FieldName>
+    ): void; // "BigInt";
+    /**
      * The `Byte` scalar type represents byte value as a Buffer
      */
     bytes<FieldName extends string>(
@@ -48,6 +71,13 @@ declare global {
       fieldName: FieldName,
       ...opts: core.ScalarOutSpread<TypeName, FieldName>
     ): void; // "DateTime";
+    /**
+     * An arbitrary-precision Decimal type
+     */
+    decimal<FieldName extends string>(
+      fieldName: FieldName,
+      ...opts: core.ScalarOutSpread<TypeName, FieldName>
+    ): void; // "Decimal";
     /**
      * The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
      */
@@ -72,8 +102,10 @@ export interface NexusGenScalars {
   Float: number;
   Boolean: boolean;
   ID: string;
+  BigInt: any;
   Bytes: any;
   DateTime: any;
+  Decimal: any;
   Json: any;
 }
 
