@@ -89,7 +89,7 @@ npm run db
 
 Recommended hosting choice is [Vercel](https://vercel.com/), which works well with Graphlatte.
 
-#### You can also run Graphlatte [on your server behind Nginx reverse proxy](https://gist.github.com/graphlatte/2a9567eb51b83dfef48efce02ef3ab06).
+#### You can also run Graphlatte [on your server behind Nginx reverse proxy](https://gist.github.com/kocisov/2a9567eb51b83dfef48efce02ef3ab06).
 
 ### Database
 
