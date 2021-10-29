@@ -6,7 +6,7 @@
     "@prisma/client": "^3.3.0",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
-    "@tippyjs/react": "^4.2.5",
+    "@tippyjs/react": "4.2.6",
     "argon2": "^0.28.2",
     "clsx": "^1.1.1",
     "framer-motion": "^4.1.17",
