@@ -10,7 +10,7 @@
     "argon2": "^0.28.2",
     "clsx": "^1.1.1",
     "framer-motion": "^4.1.17",
-    "graphql": "^15.6.1",
+    "graphql": "16.0.1",
     "graphql-helix": "^1.8.3",
     "next": "12.0.0",
     "next-iron-session": "^4.2.0",
