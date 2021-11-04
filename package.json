@@ -11,7 +11,7 @@
     "clsx": "^1.1.1",
     "framer-motion": "^4.1.17",
     "graphql": "^15.6.1",
-    "graphql-helix": "^1.8.3",
+    "graphql-helix": "1.9.1",
     "next": "12.0.0",
     "next-iron-session": "^4.2.0",
     "next-urql": "^3.2.1",
