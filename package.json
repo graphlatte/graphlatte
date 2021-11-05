@@ -24,11 +24,11 @@
     "zod": "^3.10.3"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.2.1",
-    "@graphql-codegen/near-operation-file-preset": "^2.1.6",
-    "@graphql-codegen/typed-document-node": "^2.1.6",
-    "@graphql-codegen/typescript": "^2.2.4",
-    "@graphql-codegen/typescript-operations": "^2.1.8",
+    "@graphql-codegen/cli": "2.2.2",
+    "@graphql-codegen/near-operation-file-preset": "2.2.1",
+    "@graphql-codegen/typed-document-node": "2.2.0",
+    "@graphql-codegen/typescript": "2.3.1",
+    "@graphql-codegen/typescript-operations": "2.2.0",
     "@graphql-typed-document-node/core": "^3.1.0",
     "@types/node": "^16.11.4",
     "@types/react": "^17.0.31",
