@@ -1,10 +1,12 @@
 import * as Types from "../types";
 
 import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
-export type UserFragment = { __typename?: "User" } & Pick<
-  Types.User,
-  "id" | "name" | "createdAt"
->;
+export type UserFragment = {
+  __typename?: "User";
+  id: number;
+  name: string;
+  createdAt: any;
+};
 
 export const UserFragmentDoc = {
   kind: "Document",

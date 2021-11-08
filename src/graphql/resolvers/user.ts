@@ -27,7 +27,7 @@ export const login = mutationField("login", {
     name: nonNull(stringArg()),
     password: nonNull(stringArg()),
   },
-  async resolve(_root, { name, password }, { prisma, session }) {
+  async resolve(_root, { name, password }, { prisma, req }) {
     const validName = await z.string().min(1).safeParseAsync(name);
 
     if (!validName.success) {
@@ -53,11 +53,11 @@ export const login = mutationField("login", {
     const isValidPassword = await verify(userInDatabase.password, password);
 
     if (isValidPassword) {
-      session.set("user", {
+      req.session.user = {
         id: userInDatabase.id,
         name,
-      });
-      await session.save();
+      };
+      await req.session.save();
 
       delete (userInDatabase as any).password;
 
@@ -114,8 +114,8 @@ export const register = mutationField("register", {
 
 export const logout = mutationField("logout", {
   type: "User",
-  async resolve(_root, _args, { session }) {
-    session.destroy();
+  async resolve(_root, _args, { req }) {
+    req.session.destroy();
     return null;
   },
 });

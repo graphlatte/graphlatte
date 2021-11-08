@@ -1,0 +1,5 @@
+mutation register($name: String!, $password: String!) {
+  register(name: $name, password: $password) {
+    ...User
+  }
+}

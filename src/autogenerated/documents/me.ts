@@ -1,11 +1,14 @@
 import * as Types from "../types";
 
-import { UserFragment } from "./user";
 import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type MeQueryVariables = Types.Exact<{ [key: string]: never }>;
 
-export type MeQuery = { __typename?: "Query" } & {
-  me?: Types.Maybe<{ __typename?: "User" } & UserFragment>;
+export type MeQuery = {
+  __typename?: "Query";
+  me?:
+    | { __typename?: "User"; id: number; name: string; createdAt: any }
+    | null
+    | undefined;
 };
 
 export const MeDocument = {

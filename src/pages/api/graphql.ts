@@ -1,6 +1,6 @@
 import { Context, createContext } from "@/graphql/context";
 import { getEnveloped } from "@/graphql/envelop";
-import { ExtendedRequest, withSession } from "@/graphql/session";
+import { withSession } from "@/graphql/session";
 import {
   getGraphQLParameters,
   processRequest,
@@ -8,9 +8,8 @@ import {
   sendResult,
   shouldRenderGraphiQL,
 } from "graphql-helix";
-import { NextApiResponse } from "next";
 
-async function run(req: ExtendedRequest, res: NextApiResponse) {
+export default withSession(async (req, res) => {
   const request = {
     body: req.body,
     headers: req.headers,
@@ -43,6 +42,4 @@ async function run(req: ExtendedRequest, res: NextApiResponse) {
   });
 
   sendResult(result, res);
-}
-
-export default withSession(run);
+});

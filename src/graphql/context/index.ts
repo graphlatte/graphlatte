@@ -1,7 +1,6 @@
 import { prisma } from "@/graphql/database";
-import { ExtendedRequest } from "@/graphql/session";
 import { PrismaClient } from "@prisma/client";
-import { Session } from "next-iron-session";
+import { NextApiRequest } from "next";
 
 export type SessionUser = {
   id: number;
@@ -9,16 +8,19 @@ export type SessionUser = {
 };
 
 export type Context = {
+  req: NextApiRequest;
   prisma: PrismaClient;
-  req: ExtendedRequest;
-  session: Session;
-  user: SessionUser | undefined;
+  user?: SessionUser;
 };
 
 type CreateContextProps = {
-  req: ExtendedRequest;
+  req: NextApiRequest;
 };
 
 export function createContext({ req }: CreateContextProps): Context {
-  return { req, prisma, session: req.session, user: req.session.get("user") };
+  return {
+    req,
+    prisma,
+    user: req.session.user,
+  };
 }

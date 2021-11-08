@@ -1,26 +1,26 @@
 import * as Types from "../types";
 
 import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
-export type LoginMutationVariables = Types.Exact<{
+export type RegisterMutationVariables = Types.Exact<{
   name: Types.Scalars["String"];
   password: Types.Scalars["String"];
 }>;
 
-export type LoginMutation = {
+export type RegisterMutation = {
   __typename?: "Mutation";
-  login?:
+  register?:
     | { __typename?: "User"; id: number; name: string; createdAt: any }
     | null
     | undefined;
 };
 
-export const LoginDocument = {
+export const RegisterDocument = {
   kind: "Document",
   definitions: [
     {
       kind: "OperationDefinition",
       operation: "mutation",
-      name: { kind: "Name", value: "login" },
+      name: { kind: "Name", value: "register" },
       variableDefinitions: [
         {
           kind: "VariableDefinition",
@@ -53,7 +53,7 @@ export const LoginDocument = {
         selections: [
           {
             kind: "Field",
-            name: { kind: "Name", value: "login" },
+            name: { kind: "Name", value: "register" },
             arguments: [
               {
                 kind: "Argument",
@@ -102,4 +102,4 @@ export const LoginDocument = {
       },
     },
   ],
-} as unknown as DocumentNode<LoginMutation, LoginMutationVariables>;
+} as unknown as DocumentNode<RegisterMutation, RegisterMutationVariables>;

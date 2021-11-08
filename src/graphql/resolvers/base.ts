@@ -1,4 +1,5 @@
 import { sleep } from "@/library/sleep";
+import { randomInt } from "crypto";
 import { queryField } from "nexus";
 
 export const hello = queryField("hello", {
@@ -14,6 +15,6 @@ export const hello = queryField("hello", {
 export const random = queryField("random", {
   type: "Int",
   async resolve() {
-    return Math.floor(Math.random() * 100_000_000);
+    return randomInt(0, 100_000_000);
   },
 });

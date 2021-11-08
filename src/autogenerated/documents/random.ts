@@ -3,10 +3,10 @@ import * as Types from "../types";
 import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type RandomQueryVariables = Types.Exact<{ [key: string]: never }>;
 
-export type RandomQuery = { __typename?: "Query" } & Pick<
-  Types.Query,
-  "random"
->;
+export type RandomQuery = {
+  __typename?: "Query";
+  random?: number | null | undefined;
+};
 
 export const RandomDocument = {
   kind: "Document",
