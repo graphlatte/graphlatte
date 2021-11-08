@@ -5,15 +5,12 @@ import {
   getGraphQLParameters,
   processRequest,
   renderGraphiQL,
+  sendResult,
   shouldRenderGraphiQL,
 } from "graphql-helix";
 import { NextApiResponse } from "next";
 
 async function run(req: ExtendedRequest, res: NextApiResponse) {
-  const { parse, validate, contextFactory, execute, schema } = getEnveloped({
-    req,
-  });
-
   const request = {
     body: req.body,
     headers: req.headers,
@@ -26,6 +23,9 @@ async function run(req: ExtendedRequest, res: NextApiResponse) {
   }
 
   const { operationName, query, variables } = getGraphQLParameters(request);
+  const { parse, validate, contextFactory, execute, schema } = getEnveloped({
+    req,
+  });
 
   const result = await processRequest<Context>({
     operationName,
@@ -42,10 +42,7 @@ async function run(req: ExtendedRequest, res: NextApiResponse) {
     }),
   });
 
-  if (result.type === "RESPONSE") {
-    result.headers.forEach(({ name, value }) => res.setHeader(name, value));
-    res.status(result.status).json(result.payload);
-  }
+  sendResult(result, res);
 }
 
 export default withSession(run);
