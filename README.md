@@ -60,7 +60,7 @@ npm run dev
 
 #### Requires installed and running [`Docker`](https://docs.docker.com/get-docker).
 
-##### The data between Docker restarts are saved in ./docker/postgres folder, that can be changed in the [Compose file](./docker-compose.yml)
+##### The data between Docker restarts are saved in ./docker/postgres folder (that can be changed in the [Compose file](./docker-compose.yml))
 
 ```bash
 yarn db
@@ -69,7 +69,7 @@ yarn db
 npm run db
 ```
 
-- You can also use something like [`Concurrently`](https://github.com/kimmobrunfeldt/concurrently) to run the `next dev` and `docker-compose` in one command
+- You can also use tool like [`Concurrently`](https://github.com/open-cli-tools/concurrently) to run the `next dev` and `docker-compose` in one command
 
 ```jsonc
 // package.json
