@@ -23,6 +23,8 @@ function getEventFromName(eventName: string) {
 
 export const getEnveloped = envelop({
   plugins: [
+    // nexus not updated for gql16 yet
+    // @ts-ignore
     useSchema(schema),
     useLogger({
       logFn(eventName, { args, result }) {

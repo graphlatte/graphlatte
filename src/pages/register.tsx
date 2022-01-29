@@ -30,20 +30,20 @@ function Register() {
         <div className="flex flex-col items-start gap-2">
           <div>Name</div>
           <input
-            className="w-full max-w-sm p-2 border-gray-200 rounded"
+            className="w-full max-w-sm rounded border-gray-200 p-2"
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
           <div>Password</div>
           <input
-            className="w-full max-w-sm p-2 mb-4 border-gray-200 rounded"
+            className="mb-4 w-full max-w-sm rounded border-gray-200 p-2"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
           <button
-            className="px-8 text-white bg-black rounded"
+            className="rounded bg-black px-8 text-white"
             onClick={register}
           >
             Register

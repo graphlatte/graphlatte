@@ -13,12 +13,12 @@
 3. GraphQL Codegen
    - TypedDocumentNode
    - Near operation files
-4. Tailwind (JIT mode) with a base configuration
+4. Tailwind 3 with a base configuration and [`Prettier plugin`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
 5. Docker Compose for local Postgres database
 6. On-save Code generation with VSCode plugin [`Save and Run`](https://marketplace.visualstudio.com/items?itemName=wk-j.save-and-run)
 7. Next.js built-in ESLint integration
 8. Easy global typing with [`definitions.d.ts`](https://github.com/graphlatte/graphlatte/blob/main/src/config/definitions.d.ts) file (e.g. typing .env)
-9. Using [`next-iron-session`](https://github.com/vvo/next-iron-session) for authentication/session handling
+9. Using [`iron-session`](https://github.com/vvo/iron-session) for authentication/session handling
 10. [`Envelop`](https://github.com/dotansimha/envelop) included
 
 ## Installation
