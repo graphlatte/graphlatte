@@ -8,3 +8,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    volumes:
+      # For persisting the data between restarts
+      - ./docker/postgres:/var/lib/postgresql/data

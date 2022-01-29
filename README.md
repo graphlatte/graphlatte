@@ -8,12 +8,12 @@
 
 ## What is in Graphlatte
 
-1. GraphQL Helix with GraphQL Playground
-2. Nexus with Prisma (`nexus-prisma`)
-3. GraphQL Codegen
+1. [`GraphQL Helix`](https://github.com/contra/graphql-helix) for handling requests
+2. Nexus with Prisma [`(nexus-prisma)`](https://github.com/prisma/nexus-prisma)
+3. [`GraphQL Codegen`](https://www.graphql-code-generator.com/)
    - TypedDocumentNode
    - Near operation files
-4. Tailwind 3 with a base configuration and [`Prettier plugin`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
+4. [`Tailwind`](https://tailwindcss.com/) with a base configuration and [`Tailwind Prettier Plugin`](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
 5. Docker Compose for local Postgres database
 6. On-save Code generation with VSCode plugin [`Save and Run`](https://marketplace.visualstudio.com/items?itemName=wk-j.save-and-run)
 7. Next.js built-in ESLint integration
@@ -59,6 +59,8 @@ npm run dev
 - Graphlatte comes with a base `docker-compose` file for running local Postgres
 
 #### Requires installed and running [`Docker`](https://docs.docker.com/get-docker).
+
+##### The data between Docker restarts are saved in ./docker/postgres folder, that can be changed in the [Compose file](./docker-compose.yml)
 
 ```bash
 yarn db
